@@ -9,5 +9,5 @@ for (int i = 0; i < strlen(s); i++){
 
   print("%c", s[i]);
 }
-printf("\n")'
+printf("\n");
 }
