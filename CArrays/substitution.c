@@ -6,25 +6,48 @@
 int norepeat(string s);
 int isitalpha(string s);
 
-int main(int argc, string argv[]){
 
-int step1 = norepeat(argv[1]);
-int step2 = isitalpha(argv[1]);
-// trocar depois para 26
-if ((argc != 2) || (step1 == 1) || (strlen(argv[1]) != 26) || (step2 == 1)) { 
+int main(int argc, string argv[]){
+if (argc != 2) { 
   printf("Error");
   return 1;
 }
 
-printf("%s\n", argv[1]);
+string cipher = argv[1];
+int step1 = norepeat(argv[1]);
+int step2 = isitalpha(argv[1]);
+int l = strlen(argv[1]);
+string plaintext;
+string ciphertext;
+int ascii;
 
-printf("%i\n", step1);
-printf("%i\n", argc);
-
-return 0;
+if ((step1 == 1) || (strlen(argv[1]) != 26) || (step2 == 1)) { 
+  printf("Error");
+  return 1;
 }
 
+plaintext = get_string("plain text: ");
+ciphertext = plaintext;
 
+
+for (int c = 0; c < strlen(plaintext); c++){
+  ascii = 0;
+  if(isalpha(ciphertext[c])){
+    for(int c2 = tolower(ciphertext[c]); c2 >= 97; c2--){
+      ascii++;
+    }
+    if (isupper(plaintext[c])){
+      ciphertext[c] = tolower(cipher[ascii - 1]) - 32;
+    }else{
+     ciphertext[c] = tolower(cipher[ascii - 1]);
+    }
+  
+  }
+
+}
+ printf("ciphertext: %s\n", ciphertext);
+return 0;
+}
 
 
 // Functions
