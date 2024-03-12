@@ -33,6 +33,7 @@ void record_preferences(int ranks[]);
 void add_pairs(void);
 void sort_pairs(void);
 void lock_pairs(void);
+bool cycle(int winner, int loser);
 void print_winner(void);
 
 int main(int argc, string argv[])
@@ -107,7 +108,7 @@ bool vote(int rank, string name, int ranks[])
     // TODO
 
 
-    for(int c = 0; c <= candidate_count; c++){
+    for(int c = 0; c < candidate_count; c++){
 
     if(strcmp(name, candidates[c]) == 0){
         if(rank == 0){
@@ -242,10 +243,14 @@ void sort_pairs(void)
 // Lock pairs into the candidate graph in order, without creating cycles
 void lock_pairs(void)
 {
-    // TODO
-    for(int i = 0; i < pair_count; i++){
-        locked[pairs[i].winner][pairs[i].loser] = true;
+    for (int i = 0; i < pair_count; i++){
+        if(cycle(pairs[i].winner, pairs[i].loser) == false){
+            locked[pairs[i].winner][pairs[i].loser] = true;
+        }
     }
+
+
+    //teste print
 
      for(int i = 0; i < candidate_count; i++){
         for(int j = 0; j < candidate_count; j++){
@@ -258,9 +263,49 @@ void lock_pairs(void)
     return;
 }
 
+
+//Cycle
+// Função auxiliar para verificar se há um ciclo a partir de 'v'
+bool cycle(int winner, int loser)
+{
+    if(loser == winner){
+        return true;
+    }
+    for(int i = 0; i < candidate_count; i++){
+        if (locked[loser][i] == true){
+           if(cycle(winner, i) == true){ //verificar
+                return true;
+           }
+        }
+    }
+    return false;
+}
+
+
+
+
 // Print the winner of the election
 void print_winner(void)
 {
+
+    for(int i = 0; i < candidate_count; i++){
+        bool is_winner = true;
+        for (int j = 0; j < candidate_count; j++){
+           if (locked[j][i] == true){
+            is_winner = false;
+            break;
+           }
+        }
+        if(is_winner ==true){
+             printf("%s\n", candidates[i]);
+        }
+
+    }
+
     // TODO
     return;
 }
+
+
+
+

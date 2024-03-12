@@ -1,0 +1,11 @@
+sort1 uses: Bubble Sort.
+
+How do you know?: It's the algorithm with longest time when analyze the random files and reversed files. Although in contrast is the fastest algorithm when analyze the sorted files because it's Ω(n).
+
+sort2 uses: Merge Sort.
+
+How do you know?: It's the algorithm with the better avrage of time between al types of codes with exception the sorted files.
+
+sort3 uses: Selection Sort.
+
+How do you know?: It's the second algorithm faster between the codes, with excepetion the sorted files where is in third.
