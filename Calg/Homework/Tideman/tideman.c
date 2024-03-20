@@ -33,7 +33,7 @@ void record_preferences(int ranks[]);
 void add_pairs(void);
 void sort_pairs(void);
 void lock_pairs(void);
-bool cycle(int winner, int loser);
+bool cycle(int W, int L);
 void print_winner(void);
 
 int main(int argc, string argv[])
@@ -265,15 +265,14 @@ void lock_pairs(void)
 
 
 //Cycle
-// Função auxiliar para verificar se há um ciclo a partir de 'v'
-bool cycle(int winner, int loser)
+bool cycle(int W, int L)
 {
-    if(loser == winner){
+    if(L == W){
         return true;
     }
     for(int i = 0; i < candidate_count; i++){
-        if (locked[loser][i] == true){
-           if(cycle(winner, i) == true){ //verificar
+        if (locked[L][i] == true){
+           if(cycle(W, i) == true){ //verificar
                 return true;
            }
         }
@@ -289,14 +288,14 @@ void print_winner(void)
 {
 
     for(int i = 0; i < candidate_count; i++){
-        bool is_winner = true;
+        bool winner = true;
         for (int j = 0; j < candidate_count; j++){
            if (locked[j][i] == true){
-            is_winner = false;
+            winner = false;
             break;
            }
         }
-        if(is_winner ==true){
+        if(winner ==true){
              printf("%s\n", candidates[i]);
         }
 
