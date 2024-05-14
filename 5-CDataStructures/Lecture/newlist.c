@@ -20,7 +20,6 @@ for (int i = 1; i < argc; i++){
 
   n -> number = number;
   n -> next = list;
-
   list = n;
 }
 
