@@ -1,0 +1,193 @@
+@charset "UTF-8";
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', Arial, sans-serif;
+  color: white;
+  min-height: 100vh;
+
+
+  background: url('/static/bg_clear_day.jpg') no-repeat center center fixed;
+  background-size: cover;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+
+header {
+  text-align: center;
+  padding: 20px;
+  background: rgba(0,0,0,0.3);
+  font-size: 1.8em;
+  font-weight: bold;
+}
+
+
+section {
+  background: rgba(0,0,0,0.5);
+  border-radius: 15px;
+  padding: 20px;
+  width: 90%;
+  max-width: 500px;
+  margin: 10px auto;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+  text-align: center;
+}
+
+
+#foto img {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  margin-top: 15px;
+  object-fit: cover;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.6);
+}
+
+
+.form-input-container {
+  display: flex;
+  justify-content: center;
+  margin: 15px 0;
+}
+
+.form input {
+  padding: 10px;
+  border: none;
+  border-radius: 6px;
+  outline: none;
+  width: 70%;
+  max-width: 250px;
+}
+
+.form button {
+  background: #ffffff;
+  border: none;
+  border-radius: 6px;
+  margin-left: 8px;
+  padding: 10px 15px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.form button:hover {
+  background: #ddd;
+}
+
+
+#weather-data h2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+  font-size: 1.2em;
+}
+
+#weather-data h2 img {
+  margin-left: 10px;
+  height: 24px;
+}
+
+#temperature {
+  font-size: 2em;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+#description-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px 0;
+}
+
+#weather-icon {
+  width: 50px;
+  height: 50px;
+  margin-left: 8px;
+}
+
+#details-container {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 10px;
+  font-size: 0.9em;
+}
+
+
+footer {
+  text-align: center;
+  padding: 15px;
+  background: rgba(0,0,0,0.3);
+  font-style: italic;
+  font-size: 0.9em;
+}
+
+
+@media screen and (max-width: 768px) {
+  section {
+    width: 95%;
+    padding: 15px;
+  }
+
+  #foto img {
+    width: 150px;
+    height: 150px;
+  }
+}
+
+
+.clock {
+  position: relative;
+  width: 80px;
+  height: 80px;
+  border: 8px solid white;
+  border-radius: 50%;
+  margin: 20px auto 1px auto;
+  background: rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.6);
+}
+
+.hand {
+  position: absolute;
+  width: 50%;
+  top: 50%;
+  left: 50%;
+  transform-origin: left center;
+  transform: rotate(90deg);
+  transition: transform 0.5s ease-in-out;
+}
+
+.hand.hour {
+  height: 4px;
+  background: white;
+}
+
+.hand.minute {
+  height: 3px;
+  background: lightgray;
+}
+
+.hand.second {
+  height: 2px;
+  background: red;
+}
+
+.center {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  background: white;
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
