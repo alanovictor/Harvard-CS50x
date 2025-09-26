@@ -17,6 +17,7 @@ body {
     width: 90%;
 }
 
+
 .header {
     background-color: #477bff;
     color: #fff;
@@ -81,3 +82,10 @@ tbody tr:nth-of-type(odd) {
     background-color: rgb(179, 208, 255, 0.3)
 }
 
+#nameinput{
+    margin-left: 5px;
+}
+
+#dayinput{
+    margin-left: 15px;
+}

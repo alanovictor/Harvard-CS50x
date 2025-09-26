@@ -7,6 +7,50 @@
         <title>Trivia!</title>
         <script>
             // TODO: Add code to check answers to questions
+            window.addEventListener("DOMContentLoaded", () => {
+
+                    const buttons = document.querySelectorAll(".choices button");
+                    const checkAnswer = (event) => {
+                        const clickedButton = event.target;
+                        //quando um evento acontece como click, o JS cria automaticamente um objeto event, que contem informacoes sobre o evento
+                        //uma das informações é target, que indica exatamente qual elemento HTML disparou o evento.
+
+                        if  (clickedButton.classList.contains("correct")){
+                            clickedButton.textContent = "Correct!";
+                            clickedButton.style.backgroundColor = "green";
+                            buttons.forEach(btn => btn.disabled = true);
+                        } else if (clickedButton.classList.contains("incorrect")){
+                            clickedButton.textContent = "Incorrect!";
+                            clickedButton.style.backgroundColor = "red";
+                            buttons.forEach(btn => btn.disabled = true);
+                        }
+                        }
+                    const freeResponse = document.querySelector(".free-response");
+                    const freeInput = document.querySelector(".free-response input");
+                    const freeButton = document.querySelector(".free-response button");
+                    const freeFeedback = document.querySelector(".free-response .feedback");
+
+                        buttons.forEach(button => {
+                            button.addEventListener("click", checkAnswer);
+                    });
+
+                    freeButton.addEventListener("click", () => {
+                        const answer = freeInput.value.trim().toLowerCase();
+                        // trim é um metodo de String do JS, que remove espaços em branco do inicio e do fim
+                        const correctAnswer = "gandalf";
+
+                        if(answer === correctAnswer){
+                            freeFeedback.textContent = "Correct!";
+                            freeFeedback.style.color = "green";
+                        } else {
+                            freeFeedback.textContent = "Incorrect!";
+                            freeFeedback.style.color = "red";
+                        }
+                        freeInput.disabled = true;
+                        freeButton.disabled = true;
+                    });
+
+            });
         </script>
     </head>
     <body>
@@ -15,16 +59,38 @@
         </div>
 
         <div class="container">
-            <div class="section">
+             <div class="section" id="alternatives">
                 <h2>Part 1: Multiple Choice </h2>
                 <hr>
-                <!-- TODO: Add multiple choice question here -->
+                 <!-- TODO: Add multiple choice question here -->
+                <fieldset>
+                    <legend>
+                        Who is the ring bearer?
+                    </legend>
+
+                    <div class="choices">
+                        <button type="button" class="incorrect" >Legolas</button>
+                        <button type="button" class="incorrect" >Aragorn</button>
+                        <button type="button" class="correct">Frodo</button>
+                        <button type="button" class="incorrect">Sam</button>
+                    </div>
+
+                    <p class="feedback"></p>
+
+                </fieldset>
+
             </div>
 
             <div class="section">
                 <h2>Part 2: Free Response</h2>
                 <hr>
                 <!-- TODO: Add free response question here -->
+                 <fieldset class="free-response">
+                     <legend>Who is the gray wizzard?</legend>
+                     <input type="text" placeholder="Free response">
+                     <button type="button">Submit</button>
+                     <p class="feedback"></p>
+                 </fieldset>
             </div>
         </div>
     </body>

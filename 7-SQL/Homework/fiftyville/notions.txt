@@ -1,0 +1,92 @@
+
+Verificar registros crime_scene_reports
+
+28 -7 - 24 - Humphrey Street
+Theft of the cs50 duck took place at 10:15am at the Humprey Street bakery. Interviews were conducted today with three witnesses who were
+present at the time - each of their interview transcripts mentions the bakery.
+
+28 - 7 - 2024 - Humprey Street
+Littering took place at 16:36. No known witnesses.
+
+
+--
+é necessario verificar quais intrevistas mencionam a padaria..Bakery
+
+| 161 | Ruth    | 2024 | 7     | 28  | Sometime within ten minutes of the theft, I saw the thief get into a car in the bakery parking lot
+and drive away. If you have security footage from the bakery parking lot, you might want to look for cars that left the parking lot in that
+time frame.                                                          |
+| 162 | Eugene  | 2024 | 7     | 28  | I don't know the thief's name, but it was someone I recognized. Earlier this morning, before I arrived
+at Emma's bakery, I was walking by the ATM on Leggett Street and saw the thief there withdrawing some money.                                                                                                 |
+| 163 | Raymond | 2024 | 7     | 28  | As the thief was leaving the bakery, they called someone who talked to them for less than a minute.
+In the call, I heard the thief say that they were planning to take the earliest flight out of Fiftyville tomorrow. The thief then asked the
+ person on the other end of the phone to purchase the flight ticket. |
+| 192 | Kiana   | 2024 | 5     | 17  | I saw Richard take a bite out of his pastry at the bakery before his pastry was stolen from him.
+
+
+TRANSLATE
+| 161 | Ruth | 2024 | 7 | 28 | Em algum momento, dez minutos após o roubo, vi o ladrão entrar em um carro no estacionamento da padaria
+e ir embora. Se você tiver imagens de segurança do estacionamento da padaria, talvez queira procurar por carros que saíram do estacionamento nesse
+período. |
+
+| 162 | Eugene | 2024 | 7 | 28 | Não sei o nome do ladrão, mas era alguém que eu reconheci. Mais cedo esta manhã, antes de chegar
+à padaria da Emma, eu estava passando pelo caixa eletrônico na Rua Leggett e vi o ladrão sacando dinheiro. |
+
+| 163 | Raymond | 2024 | 7 | 28 | Quando o ladrão estava saindo da padaria, ligou para alguém que falou com ele por menos de um minuto.
+Na ligação, ouvi o ladrão dizer que planejava pegar o primeiro voo saindo de Fiftyville amanhã. O ladrão então pediu à
+pessoa do outro lado da linha para comprar a passagem aérea. |
+
+| 192 | Kiana | 2024 | 5 | 17 | Eu vi Richard dar uma mordida em seu doce na padaria antes que o doce fosse roubado dele.
+
+
+-------------------
+
+
+Verrificar pessoas que sairam 10 minutos depois do roubo
+id      year   month   day  hour   minute   activity   license-plate
+
+| 260 | 2024 | 7     | 28  | 10   | 16     | exit     | 5P2BI95       |
+| 261 | 2024 | 7     | 28  | 10   | 18     | exit     | 94KL13X       |
+| 262 | 2024 | 7     | 28  | 10   | 18     | exit     | 6P58WS2       |
+| 263 | 2024 | 7     | 28  | 10   | 19     | exit     | 4328GD8       |
+| 264 | 2024 | 7     | 28  | 10   | 20     | exit     | G412CB7       |
+| 265 | 2024 | 7     | 28  | 10   | 21     | exit     | L93JTIZ       |
+
+horarios mais proximas a 10 min depois
+| 266 | 2024 | 7     | 28  | 10   | 23     | exit     | 322W7JE       |
+| 267 | 2024 | 7     | 28  | 10   | 23     | exit     | 0NTHK55       |
+
+-----------------
+
+Verificar saques no dia, na rua legget Street
++-----+----------------+------+-------+-----+----------------+------------------+--------+
+| id  | account_number | year | month | day |  atm_location  | transaction_type | amount |
++-----+----------------+------+-------+-----+----------------+------------------+--------+
+| 246 | 28500762       | 2024 | 7     | 28  | Leggett Street | withdraw         | 48     |
+| 264 | 28296815       | 2024 | 7     | 28  | Leggett Street | withdraw         | 20     |
+| 266 | 76054385       | 2024 | 7     | 28  | Leggett Street | withdraw         | 60     |
+| 267 | 49610011       | 2024 | 7     | 28  | Leggett Street | withdraw         | 50     |
+| 269 | 16153065       | 2024 | 7     | 28  | Leggett Street | withdraw         | 80     |
+| 275 | 86363979       | 2024 | 7     | 28  | Leggett Street | deposit          | 10     |
+| 288 | 25506511       | 2024 | 7     | 28  | Leggett Street | withdraw         | 20     |
+| 313 | 81061156       | 2024 | 7     | 28  | Leggett Street | withdraw         | 30     |
+| 336 | 26013199       | 2024 | 7     | 28  | Leggett Street | withdraw         | 35     |
++-----+----------------+------+-------+-----+----------------+------------------+--------+
+------
+
+Verificar ligações do dia 28-7-2024 com menos de 1 minuto de duração
+
+
+
+
+Verificar primeiros voos saindo de fiftyville do dia 29-7-2024
+
+
+___
+
+Formular um select com exclusoes e parametros para puxar o culpado
+
+Fazer um select bem feitinho, puxando o nome do ladrao, telefone, e full name do airport de destino
+Fazer outro select bem feitinho puxando o nome, de acordo com o phone que falou com o phone do ladrao.
+
+
+SELECT 

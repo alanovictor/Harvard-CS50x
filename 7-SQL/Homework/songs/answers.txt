@@ -1,0 +1,2 @@
+This exercise helped me understand more fully how SQL works. It was very useful for me to fix commands in my mind and see how each
+one works in real time. It also helped me to exercise logic when using the features.

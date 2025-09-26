@@ -50,6 +50,11 @@ button, input[type="submit"] {
     vertical-align: middle;
 }
 
+button:hover {
+    background-color: white;
+    color: black;
+}
+
 
 input[type="text"] {
     line-height: 1.8;

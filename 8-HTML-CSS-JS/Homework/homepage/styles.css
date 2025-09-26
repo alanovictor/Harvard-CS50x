@@ -1,0 +1,50 @@
+
+body{
+    background-color: black;
+}
+
+.navbar-css {
+    background-color: #6B462B !important;
+}
+
+
+.navbar-css .nav-link {
+    color: #d4af37 !important;
+}
+
+.nav-link:hover {
+    color: #ffffff !important;
+}
+
+
+.image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+}
+
+.image-container img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+
+#playButton {
+    background-color: #6B462B;
+    color: #d4af37;
+    border: none;
+    border-radius: 5px;
+    display: block;
+    margin: 15px auto;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+
+#playButton:hover {
+    background-color: #5a3a20;
+}

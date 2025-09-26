@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+
+{% block title %}Quote{% endblock %}
+
+{% block main %}
+<div class="card mx-auto" style="max-width: 400px; padding: 20px;">
+    <h2 class="mb-3">Get Stock Quote</h2>
+    <form action="/quote" method="post">
+        <div class="mb-3">
+            <input name="symbol" class="form-control" placeholder="Symbol" type="text" autofocus>
+        </div>
+        <button class="btn btn-primary w-100" type="submit">Get Quote</button>
+    </form>
+
+    {% if quote %}
+        <hr>
+        <h4>Quote for {{ quote.symbol }}</h4>
+        <p>Name: {{ quote.name }}</p>
+        <p>Price: {{ quote.price | usd }}</p>
+    {% endif %}
+</div>
+{% endblock %}
